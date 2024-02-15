@@ -1,16 +1,15 @@
-# This is a sample Python script.
+from datetime import datetime
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+user_input = input("enter your goal with a deadline separated by colon\n")
+input_list = user_input.split(":")
 
+goal = input_list[0]
+deadline = input_list[1]
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+deadline_date = datetime.strptime(deadline,"%d.%m.%Y")
+today_date = datetime.today()
+time_till = deadline_date - today_date
 
+hours_till = int(time_till.total_seconds() / 60 / 60)
+print(f"Dear user! Time remaining for your goal: {goal} is {hours_till} hours.")
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
